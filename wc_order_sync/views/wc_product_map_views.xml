@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_wc_map_tree" model="ir.ui.view">
+        <field name="name">product.wc.map.tree</field>
+        <field name="model">product.wc.map</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="wc_product_name"/>
+                <field name="wc_product_id"/>
+                <field name="product_id"/>
+                <field name="auto_matched"/>
+            </list>
+        </field>
+    </record>
+    <record id="product_wc_map_form" model="ir.ui.view">
+        <field name="name">product.wc.map.form</field>
+        <field name="model">product.wc.map</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="WooCommerce">
+                            <field name="wc_product_name"/>
+                            <field name="wc_product_id"/>
+                        </group>
+                        <group string="Odoo">
+                            <field name="product_id"/>
+                            <field name="auto_matched"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="product_wc_map_action" model="ir.actions.act_window">
+        <field name="name">Product Mapping</field>
+        <field name="res_model">product.wc.map</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wc_sync_queue_tree" model="ir.ui.view">
+        <field name="name">wc.sync.queue.tree</field>
+        <field name="model">wc.sync.queue</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state=='error'" decoration-success="state=='done'" decoration-info="state=='pending'">
+                <field name="create_date" string="Received"/>
+                <field name="wc_order_id"/>
+                <field name="wc_order_number"/>
+                <field name="wc_date" string="Order Date"/>
+                <field name="wc_total" string="Amount"/>
+                <field name="wc_status"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id"/>
+                <field name="state" widget="badge"/>
+                <field name="attempts"/>
+                <field name="error_message" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="wc_sync_queue_form" model="ir.ui.view">
+        <field name="name">wc.sync.queue.form</field>
+        <field name="model">wc.sync.queue</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_retry" type="object" string="Retry" class="btn-primary" invisible="state != 'error'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,processing,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="WooCommerce">
+                            <field name="wc_order_id"/>
+                            <field name="wc_order_number"/>
+                            <field name="wc_date"/>
+                            <field name="wc_total"/>
+                            <field name="wc_status"/>
+                        </group>
+                        <group string="Odoo">
+                            <field name="sale_order_id"/>
+                            <field name="partner_id"/>
+                            <field name="attempts"/>
+                        </group>
+                    </group>
+                    <group string="Error Message" invisible="not error_message">
+                        <field name="error_message" nolabel="1"/>
+                    </group>
+                    <group string="Raw Data">
+                        <field name="payload" nolabel="1" widget="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="wc_sync_queue_action" model="ir.actions.act_window">
+        <field name="name">Sync Queue</field>
+        <field name="res_model">wc.sync.queue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

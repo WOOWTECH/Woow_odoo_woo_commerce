@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="wc_sync_menu_root" name="WooCommerce" sequence="25"
+              groups="wc_base_connector.group_wc_user"/>
+    <menuitem id="wc_sync_menu_queue" name="Sync Queue" parent="wc_sync_menu_root"
+              action="wc_sync_queue_action" sequence="10"/>
+    <menuitem id="wc_sync_menu_product_map" name="Product Mapping" parent="wc_sync_menu_root"
+              action="product_wc_map_action" sequence="20"/>
+    <menuitem id="wc_sync_menu_partner_map" name="Partner Mapping" parent="wc_sync_menu_root"
+              action="partner_wc_map_action" sequence="25"/>
+    <menuitem id="wc_sync_menu_import" name="Historical Import" parent="wc_sync_menu_root"
+              action="wc_import_wizard_action" sequence="30"
+              groups="wc_base_connector.group_wc_manager"/>
+</odoo>

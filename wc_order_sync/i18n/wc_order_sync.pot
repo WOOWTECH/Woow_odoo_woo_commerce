@@ -1,0 +1,321 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* wc_order_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-06 00:00+0000\n"
+"PO-Revision-Date: 2026-07-13 00:00+0000\n"
+"Last-Translator: WoowTech <info@woowtech.io>\n"
+"Language-Team: Chinese (Traditional) <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_wc_sync_queue
+msgid "WooCommerce Sync Queue"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_product_wc_map
+msgid "WooCommerce Product Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_partner_wc_map
+msgid "WooCommerce Partner Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_wc_import_wizard
+msgid "WooCommerce Historical Order Import"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_order_id
+msgid "WC Order ID"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_order_number
+msgid "WC Order Number"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__payload
+msgid "JSON Payload"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__state
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__state
+msgid "State"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__pending
+msgid "Pending"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__processing
+msgid "Processing"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__done
+msgid "Done"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__error
+msgid "Error"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__error_message
+msgid "Error Message"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__sale_order_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__attempts
+msgid "Attempts"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_total
+msgid "WC Order Amount"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_date
+msgid "WC Order Date"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_status
+msgid "WC Order Status"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_order_id
+msgid "WC Order ID"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_order_status
+msgid "WC Order Status"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_payment_method
+msgid "WC Payment Method"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__wc_product_name
+msgid "WC Product Name"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__wc_product_id
+msgid "WC Product ID"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__product_id
+msgid "Odoo Product"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__auto_matched
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__auto_matched
+msgid "Auto Matched"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_customer_name
+msgid "WC Customer Name"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_customer_id
+msgid "WC Customer ID"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_email
+msgid "WC Email"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_phone
+msgid "WC Phone"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__partner_id
+msgid "Odoo Contact"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__last_order_date
+msgid "Last Order Date"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__order_count
+msgid "Order Count"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_webhook_secret
+msgid "Webhook Secret"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_auto_confirm
+msgid "Auto-confirm Orders"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_auto_stock
+msgid "Auto-deduct Stock"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_default_product_id
+msgid "Default Product"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__date_from
+msgid "Start Date"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__date_to
+msgid "End Date"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__status_filter
+msgid "Order Status"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__completed
+msgid "Completed"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__processing
+msgid "Processing"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__any
+msgid "All"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__import_limit
+msgid "Import Limit"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,help:wc_order_sync.field_wc_import_wizard__import_limit
+msgid "0 = unlimited"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__imported_count
+msgid "Imported"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__skipped_count
+msgid "Skipped (Duplicate)"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__error_count
+msgid "Errors"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.wc_sync_queue_action
+msgid "Sync Queue"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.product_wc_map_action
+msgid "Product Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.partner_wc_map_action
+msgid "Partner Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.wc_import_wizard_action
+msgid "WooCommerce Historical Order Import"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_root
+msgid "WooCommerce"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_queue
+msgid "Sync Queue"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_product_map
+msgid "Product Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_partner_map
+msgid "Partner Mapping"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_import
+msgid "Historical Import"
+msgstr ""
+
+#. module: wc_order_sync
+#: model:ir.cron,name:wc_order_sync.ir_cron_wc_sync_queue
+msgid "WooCommerce: Daily Sync Queue"
+msgstr ""
+
+#. module: wc_order_sync
+#: code:addons/wc_order_sync/models/wc_config.py:0
+#, python-format
+msgid "Manual sync completed"
+msgstr ""
+
+#. module: wc_order_sync
+#: code:addons/wc_order_sync/wizard/wc_import_wizard.py:0
+#, python-format
+msgid "Please fill in WooCommerce connection information in Settings first"
+msgstr ""

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_wc_sync_queue" model="ir.cron">
+            <field name="name">WooCommerce: Daily Sync Queue</field>
+            <field name="model_id" ref="wc_order_sync.model_wc_sync_queue"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_queue()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

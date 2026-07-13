@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="partner_wc_map_tree" model="ir.ui.view">
+        <field name="name">partner.wc.map.tree</field>
+        <field name="model">partner.wc.map</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="wc_customer_name"/>
+                <field name="wc_customer_id"/>
+                <field name="wc_email"/>
+                <field name="wc_phone"/>
+                <field name="partner_id"/>
+                <field name="auto_matched"/>
+                <field name="order_count"/>
+                <field name="last_order_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="partner_wc_map_form" model="ir.ui.view">
+        <field name="name">partner.wc.map.form</field>
+        <field name="model">partner.wc.map</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="WooCommerce">
+                            <field name="wc_customer_name"/>
+                            <field name="wc_customer_id"/>
+                            <field name="wc_email"/>
+                            <field name="wc_phone"/>
+                        </group>
+                        <group string="Odoo">
+                            <field name="partner_id"/>
+                            <field name="auto_matched"/>
+                            <field name="order_count"/>
+                            <field name="last_order_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="partner_wc_map_action" model="ir.actions.act_window">
+        <field name="name">Partner Mapping</field>
+        <field name="res_model">partner.wc.map</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wc_import_wizard_form" model="ir.ui.view">
+        <field name="name">wc.import.wizard.form</field>
+        <field name="model">wc.import.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group invisible="state == 'done'">
+                    <group string="Filters">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="status_filter"/>
+                        <field name="import_limit"/>
+                    </group>
+                </group>
+                <group invisible="state != 'done'">
+                    <group string="Import Results">
+                        <field name="imported_count"/>
+                        <field name="skipped_count"/>
+                        <field name="error_count"/>
+                    </group>
+                </group>
+                <field name="state" invisible="1"/>
+                <footer>
+                    <button name="action_import" type="object" string="Start Import"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="wc_import_wizard_action" model="ir.actions.act_window">
+        <field name="name">WooCommerce Historical Import</field>
+        <field name="res_model">wc.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

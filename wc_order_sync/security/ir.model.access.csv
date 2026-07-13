@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_sync_queue_manager,wc.sync.queue.manager,model_wc_sync_queue,wc_base_connector.group_wc_manager,1,1,1,1
+access_wc_sync_queue_user,wc.sync.queue.user,model_wc_sync_queue,wc_base_connector.group_wc_user,1,0,0,0
+access_product_wc_map_manager,product.wc.map.manager,model_product_wc_map,wc_base_connector.group_wc_manager,1,1,1,1
+access_product_wc_map_user,product.wc.map.user,model_product_wc_map,wc_base_connector.group_wc_user,1,0,0,0
+access_partner_wc_map_manager,partner.wc.map.manager,model_partner_wc_map,wc_base_connector.group_wc_manager,1,1,1,1
+access_partner_wc_map_user,partner.wc.map.user,model_partner_wc_map,wc_base_connector.group_wc_user,1,0,0,0
+access_wc_import_wizard_manager,wc.import.wizard.manager,model_wc_import_wizard,wc_base_connector.group_wc_manager,1,1,1,1

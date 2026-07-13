@@ -1,0 +1,321 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* wc_order_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-06 00:00+0000\n"
+"PO-Revision-Date: 2026-07-13 00:00+0000\n"
+"Last-Translator: WoowTech <info@woowtech.io>\n"
+"Language-Team: Chinese (Traditional) <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_wc_sync_queue
+msgid "WooCommerce Sync Queue"
+msgstr "WooCommerce 同步佇列"
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_product_wc_map
+msgid "WooCommerce Product Mapping"
+msgstr "WooCommerce 商品對應"
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_partner_wc_map
+msgid "WooCommerce Partner Mapping"
+msgstr "WooCommerce 聯絡人對應"
+
+#. module: wc_order_sync
+#: model:ir.model,name:wc_order_sync.model_wc_import_wizard
+msgid "WooCommerce Historical Order Import"
+msgstr "WooCommerce 歷史訂單匯入"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_order_id
+msgid "WC Order ID"
+msgstr "WC 訂單 ID"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_order_number
+msgid "WC Order Number"
+msgstr "WC 訂單編號"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__payload
+msgid "JSON Payload"
+msgstr "JSON 原始資料"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__state
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__state
+msgid "State"
+msgstr "狀態"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__pending
+msgid "Pending"
+msgstr "待處理"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__processing
+msgid "Processing"
+msgstr "處理中"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__done
+msgid "Done"
+msgstr "完成"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_sync_queue__state__error
+msgid "Error"
+msgstr "錯誤"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__error_message
+msgid "Error Message"
+msgstr "錯誤訊息"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__sale_order_id
+msgid "Sale Order"
+msgstr "銷售訂單"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__partner_id
+msgid "Customer"
+msgstr "客戶"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__attempts
+msgid "Attempts"
+msgstr "嘗試次數"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_total
+msgid "WC Order Amount"
+msgstr "WC 訂單金額"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_date
+msgid "WC Order Date"
+msgstr "WC 訂單日期"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_sync_queue__wc_status
+msgid "WC Order Status"
+msgstr "WC 訂單狀態"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_order_id
+msgid "WC Order ID"
+msgstr "WC 訂單 ID"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_order_status
+msgid "WC Order Status"
+msgstr "WC 訂單狀態"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_sale_order__wc_payment_method
+msgid "WC Payment Method"
+msgstr "WC 付款方式"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__wc_product_name
+msgid "WC Product Name"
+msgstr "WC 商品名稱"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__wc_product_id
+msgid "WC Product ID"
+msgstr "WC 商品 ID"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__product_id
+msgid "Odoo Product"
+msgstr "Odoo 商品"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_product_wc_map__auto_matched
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__auto_matched
+msgid "Auto Matched"
+msgstr "自動匹配"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_customer_name
+msgid "WC Customer Name"
+msgstr "WC 客戶名稱"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_customer_id
+msgid "WC Customer ID"
+msgstr "WC 客戶 ID"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_email
+msgid "WC Email"
+msgstr "WC 電子信箱"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__wc_phone
+msgid "WC Phone"
+msgstr "WC 電話"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__partner_id
+msgid "Odoo Contact"
+msgstr "Odoo 聯絡人"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__last_order_date
+msgid "Last Order Date"
+msgstr "最近訂單日期"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_partner_wc_map__order_count
+msgid "Order Count"
+msgstr "訂單數"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_webhook_secret
+msgid "Webhook Secret"
+msgstr "Webhook 密鑰"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_auto_confirm
+msgid "Auto-confirm Orders"
+msgstr "自動確認訂單"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_auto_stock
+msgid "Auto-deduct Stock"
+msgstr "自動扣庫存"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_res_config_settings__wc_default_product_id
+msgid "Default Product"
+msgstr "預設商品"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__date_from
+msgid "Start Date"
+msgstr "開始日期"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__date_to
+msgid "End Date"
+msgstr "結束日期"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__status_filter
+msgid "Order Status"
+msgstr "訂單狀態"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__completed
+msgid "Completed"
+msgstr "已完成"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__processing
+msgid "Processing"
+msgstr "處理中"
+
+#. module: wc_order_sync
+#: model:ir.model.fields.selection,name:wc_order_sync.selection__wc_import_wizard__status_filter__any
+msgid "All"
+msgstr "全部"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__import_limit
+msgid "Import Limit"
+msgstr "匯入上限"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,help:wc_order_sync.field_wc_import_wizard__import_limit
+msgid "0 = unlimited"
+msgstr "0 = 無限制"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__imported_count
+msgid "Imported"
+msgstr "已匯入"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__skipped_count
+msgid "Skipped (Duplicate)"
+msgstr "已跳過 (重複)"
+
+#. module: wc_order_sync
+#: model:ir.model.fields,field_description:wc_order_sync.field_wc_import_wizard__error_count
+msgid "Errors"
+msgstr "錯誤"
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.wc_sync_queue_action
+msgid "Sync Queue"
+msgstr "同步佇列"
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.product_wc_map_action
+msgid "Product Mapping"
+msgstr "商品對應表"
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.partner_wc_map_action
+msgid "Partner Mapping"
+msgstr "聯絡人對應表"
+
+#. module: wc_order_sync
+#: model:ir.actions.act_window,name:wc_order_sync.wc_import_wizard_action
+msgid "WooCommerce Historical Order Import"
+msgstr "WooCommerce 歷史訂單匯入"
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_root
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_queue
+msgid "Sync Queue"
+msgstr "同步佇列"
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_product_map
+msgid "Product Mapping"
+msgstr "商品對應表"
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_partner_map
+msgid "Partner Mapping"
+msgstr "聯絡人對應表"
+
+#. module: wc_order_sync
+#: model:ir.ui.menu,name:wc_order_sync.wc_sync_menu_import
+msgid "Historical Import"
+msgstr "歷史匯入"
+
+#. module: wc_order_sync
+#: model:ir.cron,name:wc_order_sync.ir_cron_wc_sync_queue
+msgid "WooCommerce: Daily Sync Queue"
+msgstr "WooCommerce: 每日同步佇列"
+
+#. module: wc_order_sync
+#: code:addons/wc_order_sync/models/wc_config.py:0
+#, python-format
+msgid "Manual sync completed"
+msgstr "手動同步已完成"
+
+#. module: wc_order_sync
+#: code:addons/wc_order_sync/wizard/wc_import_wizard.py:0
+#, python-format
+msgid "Please fill in WooCommerce connection information in Settings first"
+msgstr "請先在設定中填寫 WooCommerce 連線資訊"

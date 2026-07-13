@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_wc_sync" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.wc.sync</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="wc_base_connector.res_config_settings_view_form_wc_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='wc_base_connector']" position="inside">
+                <block title="Order Sync Settings">
+                    <setting string="Webhook Secret">
+                        <field name="wc_webhook_secret"/>
+                    </setting>
+                    <setting string="Auto-confirm Orders">
+                        <field name="wc_auto_confirm"/>
+                    </setting>
+                    <setting string="Auto-deduct Stock (validate delivery for completed orders)">
+                        <field name="wc_auto_stock"/>
+                    </setting>
+                    <setting string="Default Product (fallback when no match)">
+                        <field name="wc_default_product_id"/>
+                    </setting>
+                </block>
+                <block title="Manual Actions">
+                    <setting string="Process all pending queue items now">
+                        <div class="mt8">
+                            <button name="action_manual_sync" type="object" string="Manual Sync" class="btn-primary" icon="fa-refresh"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

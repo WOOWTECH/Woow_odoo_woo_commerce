@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_wc_base" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.wc.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="WooCommerce" string="WooCommerce" name="wc_base_connector"
+                     groups="wc_base_connector.group_wc_manager">
+                    <block title="WooCommerce Connection">
+                        <setting string="API Connection">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="wc_url" class="col-lg-3"/>
+                                    <field name="wc_url" class="col-lg-9" placeholder="https://www.inzense.com.tw"/>
+                                </div>
+                                <div class="row">
+                                    <label for="wc_username" class="col-lg-3"/>
+                                    <field name="wc_username" class="col-lg-9"/>
+                                </div>
+                                <div class="row">
+                                    <label for="wc_password" class="col-lg-3"/>
+                                    <field name="wc_password" class="col-lg-9" password="True"/>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-lg-3"/>
+                                    <button name="action_test_wc_connection" type="object" string="Test Connection" class="btn-primary"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
