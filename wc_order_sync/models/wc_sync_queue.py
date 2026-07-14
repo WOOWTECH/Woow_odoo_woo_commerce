@@ -76,14 +76,15 @@ class WcSyncQueue(models.Model):
         existing = self.env['sale.order'].sudo().search([('wc_order_id', '=', wc_order_id)], limit=1)
         if existing:
             return existing
-        partner = self._find_or_create_partner(data)
+        wc_date = self._parse_wc_date(data.get('date_created', ''))
+        partner = self._find_or_create_partner(data, wc_date)
         order_lines = self._build_order_lines(data)
         order_vals = {
             'partner_id': partner.id,
             'wc_order_id': wc_order_id,
             'wc_order_status': data.get('status', ''),
             'wc_payment_method': data.get('payment_method_title', ''),
-            'date_order': self._parse_wc_date(data.get('date_created', '')),
+            'date_order': wc_date,
             'order_line': order_lines,
             'note': self._build_note(data),
         }
@@ -96,6 +97,8 @@ class WcSyncQueue(models.Model):
         if auto_confirm in ('True', '1', 'true'):
             try:
                 sale_order.action_confirm()
+                # Restore the original WC order date (action_confirm resets it)
+                sale_order.write({'date_order': wc_date})
             except Exception as e:
                 _logger.warning("WC Sync: Auto-confirm failed for %s: %s", sale_order.name, str(e)[:100])
         wc_status = data.get('status', '')
@@ -114,7 +117,7 @@ class WcSyncQueue(models.Model):
                 except Exception as e:
                     _logger.warning("WC Sync: Auto-validate picking failed for %s: %s", sale_order.name, str(e)[:100])
 
-    def _find_or_create_partner(self, data):
+    def _find_or_create_partner(self, data, wc_date=None):
         Partner = self.env['res.partner'].sudo()
         PartnerMap = self.env['partner.wc.map'].sudo()
         billing = data.get('billing', {})
@@ -124,15 +127,18 @@ class WcSyncQueue(models.Model):
         first_name = billing.get('first_name', '').strip()
         name = f"{last_name}{first_name}".strip() or email or 'Unknown Customer'
         wc_customer_id = data.get('customer_id', 0)
+        order_date = wc_date or fields.Datetime.now()
         if wc_customer_id:
             mapping = PartnerMap.search([('wc_customer_id', '=', wc_customer_id)], limit=1)
             if mapping and mapping.partner_id:
-                mapping.write({'last_order_date': fields.Datetime.now()})
+                if not mapping.last_order_date or str(order_date) > str(mapping.last_order_date):
+                    mapping.write({'last_order_date': order_date})
                 return mapping.partner_id
         if email:
             mapping = PartnerMap.search([('wc_email', '=', email)], limit=1)
             if mapping and mapping.partner_id:
-                mapping.write({'last_order_date': fields.Datetime.now()})
+                if not mapping.last_order_date or str(order_date) > str(mapping.last_order_date):
+                    mapping.write({'last_order_date': order_date})
                 return mapping.partner_id
         partner = False
         if email:
@@ -165,12 +171,12 @@ class WcSyncQueue(models.Model):
             '|', ('wc_customer_id', '=', wc_customer_id), ('wc_email', '=', email),
         ], limit=1) if (wc_customer_id or email) else False
         if existing_map:
-            existing_map.write({'partner_id': partner.id, 'last_order_date': fields.Datetime.now()})
+            existing_map.write({'partner_id': partner.id, 'last_order_date': order_date})
         else:
             PartnerMap.create({
                 'wc_customer_name': name, 'wc_customer_id': wc_customer_id,
                 'wc_email': email, 'wc_phone': phone, 'partner_id': partner.id,
-                'auto_matched': True, 'last_order_date': fields.Datetime.now(),
+                'auto_matched': True, 'last_order_date': order_date,
             })
         return partner
 
