@@ -2,7 +2,7 @@
 {
     "name": "WooCommerce Order Sync",
     "author": "WoowTech",
-    "version": "18.0.2.0.3",
+    "version": "18.0.2.1.0",
     "summary": "Sync WooCommerce orders, customers, and products to Odoo",
     "license": "LGPL-3",
     "depends": ["sale_management", "stock", "mail", "wc_base_connector"],

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import logging
+import requests
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
@@ -33,20 +34,85 @@ class WcSyncQueue(models.Model):
 
     @api.model
     def action_manual_sync(self):
+        fetched = self._fetch_new_wc_orders()
         self._cron_process_queue()
         return {
             'type': 'ir.actions.client',
             'tag': 'display_notification',
             'params': {
                 'title': 'WooCommerce Sync',
-                'message': 'Manual sync completed',
+                'message': f'Fetched {fetched} new orders, sync completed',
                 'type': 'success',
                 'sticky': False,
             }
         }
 
     @api.model
+    def _fetch_new_wc_orders(self):
+        """Fetch new orders from WooCommerce API and enqueue them."""
+        try:
+            mixin = self.env['wc.connection.mixin'].sudo()
+            wc_url, auth = mixin._get_wc_auth()
+            if not wc_url or not auth[0]:
+                return 0
+            # Find the latest synced WC order ID
+            latest = self.search([], order='wc_order_id desc', limit=1)
+            last_id = latest.wc_order_id if latest else 0
+            api_url = f"{wc_url.rstrip('/')}/wp-json/wc/v3/orders"
+            fetched = 0
+            page = 1
+            while True:
+                params = {
+                    'per_page': 100, 'page': page,
+                    'orderby': 'date', 'order': 'asc',
+                    'status': 'completed,processing,on-hold',
+                }
+                if last_id:
+                    # Only fetch orders newer than the last synced
+                    last_queue = self.search(
+                        [('wc_order_id', '=', last_id)], limit=1)
+                    if last_queue and last_queue.wc_date:
+                        params['after'] = last_queue.wc_date
+                resp = requests.get(api_url, auth=auth, params=params,
+                                    timeout=30)
+                if resp.status_code != 200:
+                    break
+                orders = resp.json()
+                if not orders:
+                    break
+                for order_data in orders:
+                    wc_id = order_data.get('id')
+                    if self.search([('wc_order_id', '=', wc_id)], limit=1):
+                        continue
+                    if self.env['sale.order'].sudo().search(
+                            [('wc_order_id', '=', wc_id)], limit=1):
+                        continue
+                    self.create({
+                        'wc_order_id': wc_id,
+                        'wc_order_number': str(
+                            order_data.get('number', wc_id)),
+                        'payload': json.dumps(order_data),
+                        'state': 'pending',
+                        'wc_total': float(order_data.get('total', 0)),
+                        'wc_date': order_data.get('date_created', ''),
+                        'wc_status': order_data.get('status', ''),
+                    })
+                    fetched += 1
+                page += 1
+                total_pages = int(resp.headers.get('X-WP-TotalPages', 1))
+                if page > total_pages:
+                    break
+            _logger.info("WC Sync: Fetched %d new orders from WooCommerce",
+                         fetched)
+            return fetched
+        except Exception as e:
+            _logger.warning("WC Sync: Failed to fetch new orders: %s",
+                            str(e)[:200])
+            return 0
+
+    @api.model
     def _cron_process_queue(self):
+        self._fetch_new_wc_orders()
         pending = self.search([
             ('state', '=', 'pending'),
             ('attempts', '<', 5),
